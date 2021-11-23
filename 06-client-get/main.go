@@ -12,7 +12,9 @@ func main() {
 	if err != nil {
 		log.Fatal("Unable to fetch data")
 	}
+
 	defer resp.Body.Close()
 	body, _ := io.ReadAll(resp.Body)
+
 	fmt.Println(string(body))
 }
