@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"net/url"
@@ -28,10 +27,6 @@ func main() {
 	}
 
 	defer resp.Body.Close()
-	body, _ := io.ReadAll(resp.Body)
-
-	// String
-	fmt.Println(string(body))
 
 	// Struct
 	var jsonBody Post

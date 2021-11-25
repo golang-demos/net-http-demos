@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -24,14 +23,5 @@ func main() {
 	defer resp.Body.Close()
 	body, _ := io.ReadAll(resp.Body)
 
-	// String
 	fmt.Println(string(body))
-
-	// Struct
-	var jsonBody Post
-	json.NewDecoder(resp.Body).Decode(&jsonBody)
-	fmt.Println("UserId : ", jsonBody.UserId)
-	fmt.Println("Id : ", jsonBody.Id)
-	fmt.Println("Title : ", jsonBody.Title)
-	fmt.Println("Body : ", jsonBody.Body)
 }
